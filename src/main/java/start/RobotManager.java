@@ -11,8 +11,12 @@ public class RobotManager {
 		ApplicationContext context = new ClassPathXmlApplicationContext("ApplicationContext.xml");
 
 		Robot1 robot1 = (Robot1) context.getBean("robot1");
-
 		robot1.say();
+
+		//-----------------------------------------------------------------
+
+		Robot1 robotWithArgs = (Robot1) context.getBean("robotWithArgs");
+		robotWithArgs.action();
 	}
 
 }

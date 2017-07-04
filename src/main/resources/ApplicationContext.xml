@@ -5,4 +5,15 @@
 
     <bean id="robot1" class="impls.robot.Robot1"/>
 
+    <bean id ="robotWithArgs" class="impls.robot.Robot1">
+        <constructor-arg ref="toshibaHand"/>
+        <constructor-arg ref="toshibaLeg"/>
+        <constructor-arg ref="toshibaHead"/>
+    </bean>
+
+    <!-- parts for robotWithArgs -->
+    <bean id="toshibaHand" class="impls.toshiba.ToshibaHand"/>
+    <bean id="toshibaLeg" class="impls.toshiba.ToshibaLeg"/>
+    <bean id="toshibaHead" class="impls.toshiba.ToshibaHead"/>
+
 </beans>
