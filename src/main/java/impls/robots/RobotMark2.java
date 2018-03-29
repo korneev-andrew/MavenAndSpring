@@ -11,8 +11,16 @@ public class RobotMark2 extends RobotMark1 {
 
     public RobotMark2() {}
 
-    public RobotMark2(Hand hand, Leg leg, Head head, int health, Weapon weapon) {
-        super(hand, leg, head, health);
+    public RobotMark2(Hand hand, Leg leg, Head head, Weapon weapon) {
+        super(hand, leg, head);
+        this.weapon = weapon;
+    }
+
+    public Weapon getWeapon() {
+        return weapon;
+    }
+
+    public void setWeapon(Weapon weapon) {
         this.weapon = weapon;
     }
 

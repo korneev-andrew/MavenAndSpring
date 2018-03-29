@@ -16,14 +16,15 @@ public class RobotManager {
 
 		//-----------------------------------------------------------------
 
-		RobotMark1 robotMark1WithArgs = (RobotMark1) context.getBean("robotMark1WithArgs");
-		robotMark1WithArgs.action();
+		RobotMark1 autowiredRobotMark1 = (RobotMark1) context.getBean("autowiredRobotMark1");
+		autowiredRobotMark1.say();
+		autowiredRobotMark1.action();
 
 		//-----------------------------------------------------------------
 
-		RobotMark2 robotMark2  = (RobotMark2) context.getBean("robotMark2");
-		robotMark2.say();
-		robotMark2.attack(robotMark1WithArgs);
+		RobotMark2 autowiredRobotMark2  = (RobotMark2) context.getBean("autowiredRobotMark2");
+		autowiredRobotMark2.say();
+		autowiredRobotMark2.attack(autowiredRobotMark2);
 	}
 
 }
