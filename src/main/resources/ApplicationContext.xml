@@ -1,41 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
+       default-lazy-init="true">
+
+
+    <import resource="ToshibaContext.xml"/>
+    <import resource="SonyContext.xml"/>
+    <import resource="WeaponsContext.xml"/>
 
     <!-- Robots -->
-    <bean id="robotMark1" class="impls.robots.RobotMark1"/>
-
-    <bean id ="robotMark1WithArgs" class="impls.robots.RobotMark1">
-        <constructor-arg ref="toshibaHand"/>
-        <constructor-arg ref="toshibaLeg"/>
-        <constructor-arg ref="toshibaHead"/>
-        <constructor-arg value="100"/>
+    <bean id="robotMark1" class="impls.robots.RobotMark1" scope="singleton"/>
+    <bean id ="autowiredRobotMark1" class="impls.robots.RobotMark1" scope="singleton" autowire="byType">
+        <property name="health" value="100"/>
     </bean>
-
-    <bean id="robotMark2" class="impls.robots.RobotMark2">
-        <constructor-arg ref="toshibaHand"/>
-        <constructor-arg ref="toshibaLeg"/>
-        <constructor-arg ref="toshibaHead"/>
-        <constructor-arg value="100"/>
-        <constructor-arg ref="omni-blade"/>
-
+    <bean id="autowiredRobotMark2" class="impls.robots.RobotMark2" scope="singleton" autowire="byType">
+        <property name="health" value="100"/>
         <property name="name" value="FirstKillingMachine"/>
-    </bean>
-
-    <!-- Toshiba Parts -->
-    <bean id="toshibaHand" class="impls.parts.toshiba.ToshibaHand"/>
-    <bean id="toshibaLeg" class="impls.parts.toshiba.ToshibaLeg"/>
-    <bean id="toshibaHead" class="impls.parts.toshiba.ToshibaHead"/>
-
-    <!-- Sony Parts -->
-    <bean id="sonyHand" class="impls.parts.sony.SonyHand"/>
-    <bean id="sonyaLeg" class="impls.parts.sony.SonyLeg"/>
-    <bean id="sonyHead" class="impls.parts.sony.SonyHead"/>
-
-    <!-- Weapons -->
-    <bean id="omni-blade" class="impls.parts.weapons.OmniBlade">
-        <property name="damage" value="23"/>
     </bean>
 
 </beans>
