@@ -2,7 +2,9 @@ package impls.parts.sony;
 
 
 import interfaces.Hand;
+import org.springframework.stereotype.Component;
 
+@Component("sonyHand")
 public class SonyHand implements Hand {
 
 	@Override

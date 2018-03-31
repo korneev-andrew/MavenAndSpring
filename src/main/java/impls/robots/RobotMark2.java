@@ -1,33 +1,49 @@
 package impls.robots;
 
 import interfaces.*;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 
 /**
  * Created by andrew_korneev on 05.09.2017.
  */
-public class RobotMark2 extends RobotMark1 {
+public class RobotMark2 extends RobotMark1 implements WeaponWielder {
 
+    @Autowired
+    @Qualifier("sonyHand")
+    private Hand hand;
+
+    @Autowired
+    @Qualifier("sonyLeg")
+    private Leg leg;
+
+    @Autowired
+    @Qualifier("sonyHead")
+    private Head head;
+
+    @Autowired
     private Weapon weapon;
 
-    public RobotMark2() {}
+    public Hand getHand() {
+        return hand;
+    }
 
-    public RobotMark2(Hand hand, Leg leg, Head head, Weapon weapon) {
-        super(hand, leg, head);
-        this.weapon = weapon;
+    public Leg getLeg() {
+        return leg;
+    }
+
+    public Head getHead() {
+        return head;
     }
 
     public Weapon getWeapon() {
         return weapon;
     }
 
-    public void setWeapon(Weapon weapon) {
-        this.weapon = weapon;
-    }
-
     @Override
     public void say() {
         super.say();
-        System.out.println("\nHERE COMES JOHNY\n");
+        System.out.println("HERE COMES JOHNY");
     }
 
     @Override
@@ -35,10 +51,11 @@ public class RobotMark2 extends RobotMark1 {
         super.action();
     }
 
-    public void attack(RobotMark1 target) {
+    @Override
+    public void attack(Robot target) {
         System.out.println("////////// FIGHT //////////");
         System.out.println(this + " vs " + target);
-        weapon.attack(target);
+        getWeapon().attack((RobotMark1) target);
         System.out.println("///////////////////////////");
     }
 

@@ -9,12 +9,6 @@ import interfaces.Weapon;
 public class WeaponBase implements Weapon {
     private int damage;
 
-    public WeaponBase() {}
-
-    public WeaponBase(int damage) {
-        this.damage = damage;
-    }
-
     public int getDamage() {
         return damage;
     }

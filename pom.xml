@@ -5,15 +5,15 @@
 
     <groupId>Work</groupId>
     <artifactId>Robots</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.2-SNAPSHOT</version>
     <build>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
-                    <source>1.6</source>
-                    <target>1.6</target>
+                    <source>1.8</source>
+                    <target>1.8</target>
                 </configuration>
             </plugin>
         </plugins>
@@ -28,7 +28,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
         <!-- Spring -->
-        <spring-framework.version>3.2.3.RELEASE</spring-framework.version>
+        <spring-framework.version>4.0.3.RELEASE</spring-framework.version>
 
         <!-- Hibernate / JPA -->
         <hibernate.version>4.2.1.Final</hibernate.version>

@@ -1,22 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
-       default-lazy-init="true">
+       default-lazy-init="true"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
 
-
-    <import resource="ToshibaContext.xml"/>
-    <import resource="SonyContext.xml"/>
-    <import resource="WeaponsContext.xml"/>
-
-    <!-- Robots -->
-    <bean id="robotMark1" class="impls.robots.RobotMark1" scope="singleton"/>
-    <bean id ="autowiredRobotMark1" class="impls.robots.RobotMark1" scope="singleton" autowire="byType">
-        <property name="health" value="100"/>
-    </bean>
-    <bean id="autowiredRobotMark2" class="impls.robots.RobotMark2" scope="singleton" autowire="byType">
-        <property name="health" value="100"/>
-        <property name="name" value="FirstKillingMachine"/>
-    </bean>
+    <context:component-scan base-package="impls" />
+    <context:annotation-config/>
 
 </beans>
